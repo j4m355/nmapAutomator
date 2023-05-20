@@ -1,5 +1,4 @@
 read -p "Which ECS Cluster do you want to scan? " cluster_name
-read -p "Which directory do you want your report to be output to? " output_filepath
 read -p "Which scan type are you looking to perform against the cluster? (Network | Port | Script | Full | UDP | Vulns | Recon | All) " scan_type
 
 if ! command -v aws &> /dev/null
@@ -26,7 +25,7 @@ for ip in $(aws ec2 describe-instances --filters "Name=tag:Name,Values=*${cluste
 		command="./nmapAutomator.sh -H $ip -t $scan_type"
 		echo got $ip
 		echo running $command
-		./nmapAutomator.sh -H $ip -t $scan_type > $output_filepath/nmap-automator-$ip-date-$(date '+%d-%m-%Y-%H-%M').log
+		./nmapAutomator.sh -H $ip -t $scan_type 
 done
 
 
