@@ -5,6 +5,7 @@ if ! command -v aws &> /dev/null
 then
     echo "AWS CLI is not installed, installing"
     apt-get update && apt-get install awscli -y
+    aws configure
 else
     echo "AWS CLI is installed. Great"
 fi
