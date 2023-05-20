@@ -1,4 +1,4 @@
-read -p "Which ECS Cluster do you want to scan? " cluster_name
+read -p "Which EC2 Instances do you want to scan? (This command searches EC2 Name Tags) " cluster_name
 read -p "Which scan type are you looking to perform against the cluster? (Network | Port | Script | Full | UDP | Vulns | Recon | All) " scan_type
 
 if ! command -v aws &> /dev/null
